@@ -75,8 +75,6 @@ yarn-error.log
 
 #phpstorm
 .idea/
-package.json
-package-lock.json
 .vscode/launch.json
 plans.md
 .vscode/settings.json
