@@ -44,19 +44,29 @@ import {
     return (
       <Container maxW={'5xl'} py={12}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+        <Flex>
+            <Image
+              rounded={'md'}
+              alt={'feature image'}
+              src={
+                'https://d33wubrfki0l68.cloudfront.net/5e2f6e1782962c2638e7a994b07c052bb2304116/a3a9c/wp-content/uploads/2021/12/befunky-collage-768x629-1.jpg'
+              }
+              objectFit={'cover'}
+            />
+          </Flex>
           <Stack spacing={4}>
             <Text
               textTransform={'uppercase'}
-              color={'blue.400'}
+              color={'#866d5b'}
               fontWeight={600}
               fontSize={'sm'}
-              bg={useColorModeValue('blue.50', 'blue.900')}
+              bg={'#f0ece9'}
               p={2}
               alignSelf={'flex-start'}
               rounded={'md'}>
                Why us?
             </Text>
-            <Heading>Perfect for any occasion</Heading>
+            <Heading color={'#866d5b'}>Perfect for any occasion</Heading>
             <Text color={'gray.500'} fontSize={'lg'}>
             Our gift boxes are the perfect gift for <strong>any</strong> occasion. You can mix up the contents by contacting us with your requirements.
             </Text>
@@ -69,45 +79,33 @@ import {
               }>
               <Feature
                 icon={
-                  <Icon as={FaCheck} color={'yellow.500'} w={5} h={5} />
+                  <Icon as={FaCheck} color={'#866d5b'} w={5} h={5} />
                 }
-                iconBg={useColorModeValue('yellow.100', 'yellow.900')}
+                iconBg={'#f0ece9'}
                 text={'Raksha Bandhan gifts'}
               />
               <Feature
-                icon={<Icon as={FaCheck} color={'green.500'} w={5} h={5} />}
-                iconBg={useColorModeValue('green.100', 'green.900')}
+                icon={<Icon as={FaCheck} color={'#866d5b'} w={5} h={5} />}
+                iconBg={'#f0ece9'}
                 text={'Diwali Gifts'}
               />
               <Feature
-                icon={
-                  <Icon as={IoSearchSharp} color={'purple.500'} w={5} h={5} />
-                }
-                iconBg={useColorModeValue('purple.100', 'purple.900')}
+                icon={<Icon as={FaCheck} color={'#866d5b'} w={5} h={5} />}
+                iconBg={'#f0ece9'}
                 text={'Thank you gifts'}
               />
               <Feature
-                icon={
-                  <Icon as={IoSearchSharp} color={'purple.500'} w={5} h={5} />
-                }
-                iconBg={useColorModeValue('purple.100', 'purple.900')}
+                icon={<Icon as={FaCheck} color={'#866d5b'} w={5} h={5} />}
+                iconBg={'#f0ece9'}
                 text={'Birthday gifts'}
               />
               <Feature
+                icon={<Icon as={FaCheck} color={'#866d5b'} w={5} h={5} />}
+                 iconBg={'#f0ece9'}
                 text={'Teacher gifts and many more...'}
               />
             </Stack>
           </Stack>
-          <Flex>
-            <Image
-              rounded={'md'}
-              alt={'feature image'}
-              src={
-                'https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-              }
-              objectFit={'cover'}
-            />
-          </Flex>
         </SimpleGrid>
       </Container>
     );

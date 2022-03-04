@@ -1,164 +1,287 @@
 import {
   Box,
   Flex,
-  HStack,
-  HTMLChakraProps,
-  Icon,
+  Text,
   IconButton,
+  Button,
+  Stack,
+  Collapse,
+  Icon,
   Link,
-  chakra,
-  useColorMode,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
   useColorModeValue,
+  useBreakpointValue,
   useDisclosure,
-  useUpdateEffect,
-} from '@chakra-ui/react'
-import { useViewportScroll } from 'framer-motion'
-import NextLink from 'next/link'
-import { useEffect, useRef, useState } from 'react'
-import { FaMoon, FaSun, FaYoutube } from 'react-icons/fa'
-import Logo, { LogoIcon } from './logo'
-import { MobileNavButton, MobileNavContent } from './mobile-nav'
-import Search from './omni-search'
-import SponsorButton from './sponsor-button'
-import VersionSwitcher from './version-switcher'
-import { DiscordIcon, GithubIcon } from 'components/icons'
-import siteConfig from 'configs/site-config'
+} from '@chakra-ui/react';
+import {
+  HamburgerIcon,
+  CloseIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+} from '@chakra-ui/icons';
+import { Image } from '@chakra-ui/react'
 
-function HeaderContent() {
-  const mobileNav = useDisclosure()
-
-  const { toggleColorMode: toggleMode } = useColorMode()
-
-  const text = useColorModeValue('dark', 'light')
-  const SwitchIcon = useColorModeValue(FaMoon, FaSun)
-  const mobileNavBtnRef = useRef<HTMLButtonElement>()
-
-  useUpdateEffect(() => {
-    mobileNavBtnRef.current?.focus()
-  }, [mobileNav.isOpen])
+export default function WithSubnavigation() {
+  const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <>
-      <Flex w='100%' h='100%' px='6' align='center' justify='space-between'>
-        <Flex align='center'>
-          <NextLink href='/' passHref>
-            <chakra.a display='block' aria-label='Chakra UI, Back to homepage'>
-              <Logo display={{ base: 'none', md: 'block' }} />
-              <Box minW='3rem' display={{ base: 'block', md: 'none' }}>
-                <LogoIcon />
-              </Box>
-            </chakra.a>
-          </NextLink>
-        </Flex>
-
+    <Box>
+      <Flex
+        bg={useColorModeValue('white', 'gray.800')}
+        color={useColorModeValue('gray.600', 'white')}
+        minH={'60px'}
+        py={{ base: 2 }}
+        px={{ base: 4 }}
+        borderBottom={1}
+        borderStyle={'solid'}
+        borderColor={useColorModeValue('gray.200', 'gray.900')}
+        align={'center'}>
         <Flex
-          justify='flex-end'
-          w='100%'
-          align='center'
-          color='gray.400'
-          maxW='1100px'
-        >
-          <Search />
-          <VersionSwitcher
-            width='auto'
-            flexShrink={0}
-            display={{ base: 'none', md: 'flex' }}
+          flex={{ base: 1, md: 'auto' }}
+          ml={{ base: -2 }}
+          display={{ base: 'flex', md: 'none' }}>
+          <IconButton
+            onClick={onToggle}
+            icon={
+              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+            }
+            variant={'ghost'}
+            aria-label={'Toggle Navigation'}
           />
-          <HStack spacing='5' display={{ base: 'none', md: 'flex' }}>
-            <Link
-              isExternal
-              aria-label='Go to Chakra UI GitHub page'
-              href={siteConfig.repo.url}
-            >
-              <Icon
-                as={GithubIcon}
-                display='block'
-                transition='color 0.2s'
-                w='5'
-                h='5'
-                _hover={{ color: 'gray.600' }}
-              />
-            </Link>
-            <Link aria-label='Go to Chakra UI Discord page' href='/discord'>
-              <Icon
-                as={DiscordIcon}
-                display='block'
-                transition='color 0.2s'
-                w='5'
-                h='5'
-                _hover={{ color: 'gray.600' }}
-              />
-            </Link>
-            <Link
-              isExternal
-              aria-label='Go to Chakra UI YouTube channel'
-              href={siteConfig.youtube}
-            >
-              <Icon
-                as={FaYoutube}
-                display='block'
-                transition='color 0.2s'
-                w='5'
-                h='5'
-                _hover={{ color: 'gray.600' }}
-              />
-            </Link>
-          </HStack>
-          <HStack spacing='5'>
-            <IconButton
-              size='md'
-              fontSize='lg'
-              aria-label={`Switch to ${text} mode`}
-              variant='ghost'
-              color='current'
-              ml={{ base: '0', md: '3' }}
-              onClick={toggleMode}
-              icon={<SwitchIcon />}
-            />
-            <SponsorButton ml='5' />
-            <MobileNavButton
-              ref={mobileNavBtnRef}
-              aria-label='Open Menu'
-              onClick={mobileNav.onOpen}
-            />
-          </HStack>
         </Flex>
+        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+          <Image data-v-49922192="" className="logoicon" src="https://static.thenounproject.com/noun-svg/11875.svg?Expires=1646417814&amp;Signature=TEyA4JaRx~RoMJEVD74A5wIYKyIepWv8cvhf84-foAvpusJMgDOa7k9tL6n24v5ynqHY3lS-5miSEmLd~s0SyJlUnaNdqgRec~Y4QdjF3ypgOsmAdUv90~8HxSFbfw-buyzZ2EAT96ybJxBrGI11RAglywPv2ujEz4I~RgfWUzw_&amp;Key-Pair-Id=APKAI5ZVHAXN65CHVU2Q"/>
+
+          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+            <DesktopNav />
+          </Flex>
+        </Flex>
+
+        <Stack
+          flex={{ base: 1, md: 0 }}
+          justify={'flex-end'}
+          direction={'row'}
+          spacing={6}>
+          <Button
+            as={'a'}
+            fontSize={'sm'}
+            fontWeight={400}
+            variant={'link'}
+            href={'#'}>
+            Sign In
+          </Button>
+          <Button
+            display={{ base: 'none', md: 'inline-flex' }}
+            fontSize={'sm'}
+            fontWeight={600}
+            color={'white'}
+            bg={'pink.400'}
+            href={'#'}
+            _hover={{
+              bg: 'pink.300',
+            }}>
+            Sign Up
+          </Button>
+        </Stack>
       </Flex>
-      <MobileNavContent isOpen={mobileNav.isOpen} onClose={mobileNav.onClose} />
-    </>
-  )
+
+      <Collapse in={isOpen} animateOpacity>
+        <MobileNav />
+      </Collapse>
+    </Box>
+  );
 }
 
-function Header(props: HTMLChakraProps<'header'>) {
-  const bg = useColorModeValue('white', 'gray.800')
-  const ref = useRef<HTMLHeadingElement>()
-  const [y, setY] = useState(0)
-  const { height = 0 } = ref.current?.getBoundingClientRect() ?? {}
-
-  const { scrollY } = useViewportScroll()
-  useEffect(() => {
-    return scrollY.onChange(() => setY(scrollY.get()))
-  }, [scrollY])
+const DesktopNav = () => {
+  const linkColor = useColorModeValue('gray.600', 'gray.200');
+  const linkHoverColor = useColorModeValue('gray.800', 'white');
+  const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
   return (
-    <chakra.header
-      ref={ref}
-      shadow={y > height ? 'sm' : undefined}
-      transition='box-shadow 0.2s, background-color 0.2s'
-      pos='sticky'
-      top='0'
-      zIndex='3'
-      bg={bg}
-      left='0'
-      right='0'
-      width='full'
-      {...props}
-    >
-      <chakra.div height='4.5rem' mx='auto' maxW='8xl'>
-        <HeaderContent />
-      </chakra.div>
-    </chakra.header>
-  )
+    <Stack direction={'row'} spacing={4}>
+      {NAV_ITEMS.map((navItem) => (
+        <Box key={navItem.label}>
+          <Popover trigger={'hover'} placement={'bottom-start'}>
+            <PopoverTrigger>
+              <Link
+                p={2}
+                href={navItem.href ?? '#'}
+                fontSize={'sm'}
+                fontWeight={500}
+                color={linkColor}
+                _hover={{
+                  textDecoration: 'none',
+                  color: linkHoverColor,
+                }}>
+                {navItem.label}
+              </Link>
+            </PopoverTrigger>
+
+            {navItem.children && (
+              <PopoverContent
+                border={0}
+                boxShadow={'xl'}
+                bg={popoverContentBgColor}
+                p={4}
+                rounded={'xl'}
+                minW={'sm'}>
+                <Stack>
+                  {navItem.children.map((child) => (
+                    <DesktopSubNav key={child.label} {...child} />
+                  ))}
+                </Stack>
+              </PopoverContent>
+            )}
+          </Popover>
+        </Box>
+      ))}
+    </Stack>
+  );
+};
+
+const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+  return (
+    <Link
+      href={href}
+      role={'group'}
+      display={'block'}
+      p={2}
+      rounded={'md'}
+      _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
+      <Stack direction={'row'} align={'center'}>
+        <Box>
+          <Text
+            transition={'all .3s ease'}
+            _groupHover={{ color: 'pink.400' }}
+            fontWeight={500}>
+            {label}
+          </Text>
+          <Text fontSize={'sm'}>{subLabel}</Text>
+        </Box>
+        <Flex
+          transition={'all .3s ease'}
+          transform={'translateX(-10px)'}
+          opacity={0}
+          _groupHover={{ opacity: '100%', transform: 'translateX(0)' }}
+          justify={'flex-end'}
+          align={'center'}
+          flex={1}>
+          <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
+        </Flex>
+      </Stack>
+    </Link>
+  );
+};
+
+const MobileNav = () => {
+  return (
+    <Stack
+      bg={useColorModeValue('white', 'gray.800')}
+      p={4}
+      display={{ md: 'none' }}>
+      {NAV_ITEMS.map((navItem) => (
+        <MobileNavItem key={navItem.label} {...navItem} />
+      ))}
+    </Stack>
+  );
+};
+
+const MobileNavItem = ({ label, children, href }: NavItem) => {
+  const { isOpen, onToggle } = useDisclosure();
+
+  return (
+    <Stack spacing={4} onClick={children && onToggle}>
+      <Flex
+        py={2}
+        as={Link}
+        href={href ?? '#'}
+        justify={'space-between'}
+        align={'center'}
+        _hover={{
+          textDecoration: 'none',
+        }}>
+        <Text
+          fontWeight={600}
+          color={useColorModeValue('gray.600', 'gray.200')}>
+          {label}
+        </Text>
+        {children && (
+          <Icon
+            as={ChevronDownIcon}
+            transition={'all .25s ease-in-out'}
+            transform={isOpen ? 'rotate(180deg)' : ''}
+            w={6}
+            h={6}
+          />
+        )}
+      </Flex>
+
+      <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
+        <Stack
+          mt={2}
+          pl={4}
+          borderLeft={1}
+          borderStyle={'solid'}
+          borderColor={useColorModeValue('gray.200', 'gray.700')}
+          align={'start'}>
+          {children &&
+            children.map((child) => (
+              <Link key={child.label} py={2} href={child.href}>
+                {child.label}
+              </Link>
+            ))}
+        </Stack>
+      </Collapse>
+    </Stack>
+  );
+};
+
+interface NavItem {
+  label: string;
+  subLabel?: string;
+  children?: Array<NavItem>;
+  href?: string;
 }
 
-export default Header
+const NAV_ITEMS: Array<NavItem> = [
+  {
+    label: 'Inspiration',
+    children: [
+      {
+        label: 'Explore Design Work',
+        subLabel: 'Trending Design to inspire you',
+        href: '#',
+      },
+      {
+        label: 'New & Noteworthy',
+        subLabel: 'Up-and-coming Designers',
+        href: '#',
+      },
+    ],
+  },
+  {
+    label: 'Find Work',
+    children: [
+      {
+        label: 'Job Board',
+        subLabel: 'Find your dream design job',
+        href: '#',
+      },
+      {
+        label: 'Freelance Projects',
+        subLabel: 'An exclusive list for contract work',
+        href: '#',
+      },
+    ],
+  },
+  {
+    label: 'Learn Design',
+    href: '#',
+  },
+  {
+    label: 'Hire Designers',
+    href: '#',
+  },
+];

@@ -31,6 +31,7 @@ import { IoMdMoon } from 'react-icons/io'
 import { MdAccessibility, MdGrain, MdPalette } from 'react-icons/md'
 import users from 'chakra-users'
 import ChakraNextImage from 'components/chakra-next-image'
+import Hero from 'components/hero'
 import FeaturedProd from 'components/featuredprod'
 import { AdBanner } from 'components/chakra-pro/ad-banner'
 import { ChakraProAd } from 'components/chakra-pro/home-page-ad'
@@ -149,66 +150,8 @@ const HomePage = ({
       />
       <AdBanner />
       <Header />
+      <Hero />
       <Box mb={20}>
-        <Box as='section' pt='1rem' pb={{ base: '0', md: '0rem' }}>
-          <Container>
-            <Box textAlign='center'>
-              <chakra.h1
-                maxW='20ch'
-                mx='auto'
-                fontSize={{ base: '2.25rem', sm: '3rem', lg: '3.25rem' }}
-                fontFamily='heading'
-                letterSpacing='tighter'
-                fontWeight='extrabold'
-                mb='16px'
-                lineHeight='1.2'
-              >
-                {t('homepage.title.main')}
-                <Box
-                  as='span'
-                  color={useColorModeValue('teal.500', 'teal.300')}
-                >
-                  {' '}
-                  {t('homepage.title.highlighted')}
-                </Box>
-              </chakra.h1>
-
-              <Text
-                maxW='900px'
-                mx='auto'
-                color={useColorModeValue('gray.500', 'gray.400')}
-                fontSize={{ base: 'lg', lg: 's' }}
-                mt='6'
-              >
-                A beautiful gift delivered straight to your loved one’s door! The best part is it fits through the letterbox allowing this gift to be a total surprise with no waiting around for the postie! <br />
-Our boxes are perfect for any occasion as you can choose your own items or opt for one of our classic boxes and add your own unique message. <br />
-Select the products page to get started. 
-              </Text>
-
-              <Stack
-                mt='10'
-                spacing='4'
-                justify='center'
-                direction={{ base: 'column', sm: 'row' }}
-              >
-                <NextLink href='/guides/first-steps' passHref>
-                  <Button
-                    h='4rem'
-                    px='40px'
-                    fontSize='1.2rem'
-                    as='a'
-                    size='lg'
-                    colorScheme='teal'
-                    rightIcon={<FaArrowRight fontSize='0.8em' />}
-                  >
-                    {t('homepage.get-started')}
-                  </Button>
-                </NextLink>
-                
-              </Stack>
-            </Box>
-          </Container>
-        </Box>
         <Divider />
         <FeaturedProd />
 
