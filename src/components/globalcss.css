@@ -1,8 +1,11 @@
 .logoicon {
     text-align: center;
-    font-family: var(--chakra-fonts-heading);
-    color: var(--chakra-colors-gray-800);
     padding: 1px;
     border: 3px dashed #ffffff00;
-    vertical-align: middle;
 }
+
+@media (max-width: 767px) {
+    .logoicon {
+      display: none;
+    }
+  }

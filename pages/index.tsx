@@ -33,6 +33,7 @@ import users from 'chakra-users'
 import ChakraNextImage from 'components/chakra-next-image'
 import Hero from 'components/hero'
 import FeaturedProd from 'components/featuredprod'
+import Custom from 'components/custom'
 import { AdBanner } from 'components/chakra-pro/ad-banner'
 import { ChakraProAd } from 'components/chakra-pro/home-page-ad'
 import Container from 'components/container'
@@ -154,6 +155,7 @@ const HomePage = ({
       <Box mb={20}>
         <Divider />
         <FeaturedProd />
+        <Custom />
 
         <Box as='section' bg='teal.500'>
           <Container py='7.5rem' maxW='1280px' color='white'>

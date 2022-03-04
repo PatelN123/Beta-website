@@ -7,6 +7,7 @@ import {
     Text,
     Stack,
     StackDivider,
+    Divider,
     Icon,
     useColorModeValue,
   } from '@chakra-ui/react';
@@ -17,6 +18,7 @@ import {
   } from 'react-icons/io5';
   import { ReactElement } from 'react';
   import { FaCheck } from 'react-icons/fa'
+
   interface FeatureProps {
     text: string;
     iconBg: string;

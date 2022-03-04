@@ -55,7 +55,7 @@ export default function WithSubnavigation() {
           <Image
               boxSize='30px'
               objectFit='cover'
-              src='https://static.thenounproject.com/noun-svg/11875.svg?Expires=1646417814&Signature=TEyA4JaRx~RoMJEVD74A5wIYKyIepWv8cvhf84-foAvpusJMgDOa7k9tL6n24v5ynqHY3lS-5miSEmLd~s0SyJlUnaNdqgRec~Y4QdjF3ypgOsmAdUv90~8HxSFbfw-buyzZ2EAT96ybJxBrGI11RAglywPv2ujEz4I~RgfWUzw_&Key-Pair-Id=APKAI5ZVHAXN65CHVU2Q'
+              src='/logos/logo.png'
               alt='Rakhi Boxes Logo icon'
             />
           <Text
