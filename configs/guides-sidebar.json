@@ -1,0 +1,104 @@
+{
+  "routes": [
+    {
+      "title": "Guides",
+      "heading": true,
+      "routes": [
+        {
+          "title": "First Steps",
+          "path": "/guides/first-steps"
+        },
+        {
+          "title": "Upgrade to v1",
+          "path": "/guides/migration"
+        },
+        {
+          "title": "Design Principles",
+          "path": "/guides/principles"
+        },
+        {
+          "title": "Comparison",
+          "path": "/guides/comparison"
+        },
+        {
+          "title": "Getting Started",
+          "path": "/guides/getting-started",
+          "open": true,
+          "routes": [
+            {
+              "title": "Create React App",
+              "path": "/guides/getting-started/cra-guide"
+            },
+            {
+              "title": "Next JS",
+              "path": "/guides/getting-started/nextjs-guide"
+            },
+            {
+              "title": "Gatsby",
+              "path": "/guides/getting-started/gatsby-guide"
+            },
+            {
+              "title": "Blitz JS",
+              "path": "/guides/getting-started/blitzjs-guide"
+            },
+            {
+              "title": "Redwood JS",
+              "path": "/guides/getting-started/redwoodjs-guide"
+            },
+            {
+              "title": "Remix",
+              "path": "/guides/getting-started/remix-guide"
+            }
+          ]
+        },
+        {
+          "title": "Integrations",
+          "path": "/guides/integrations",
+          "open": true,
+          "routes": [
+            {
+              "title": "Framer Motion",
+              "path": "/guides/integrations/with-framer"
+            },
+            {
+              "title": "React Hook Form",
+              "path": "/guides/integrations/with-hook-form"
+            },
+            {
+              "title": "React Table",
+              "path": "/guides/integrations/with-react-table"
+            },
+            {
+              "title": "Storybook",
+              "path": "/guides/integrations/with-storybook"
+            }
+          ]
+        },
+        {
+          "title": "Advanced",
+          "path": "/guides/advanced",
+          "open": true,
+          "routes": [
+            {
+              "title": "Component Guide",
+              "path": "/guides/advanced/component-guide"
+            },
+            {
+              "title": "How to create a Guide",
+              "path": "/guides/advanced/how-to-create-a-guide"
+            },
+            {
+              "title": "Contribute",
+              "path": "/guides/advanced/contributing"
+            }
+            ,
+            {
+              "title": "Atlaskit editable",
+              "path": "/guides/recipes/atlaskit-editable"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
