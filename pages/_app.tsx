@@ -5,6 +5,7 @@ import React from 'react'
 import FontFace from 'components/font-face'
 import theme from 'theme'
 import { getSeo } from 'utils/seo'
+import 'components/globalcss.css'
 
 const App = ({ Component, pageProps }) => {
   const seo = getSeo()

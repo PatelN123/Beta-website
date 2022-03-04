@@ -2,6 +2,7 @@ import {
   Box,
   Flex,
   Text,
+  Image,
   IconButton,
   Button,
   Stack,
@@ -21,7 +22,6 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
-import { Image } from '@chakra-ui/react'
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -52,7 +52,19 @@ export default function WithSubnavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Image data-v-49922192="" className="logoicon" src="https://static.thenounproject.com/noun-svg/11875.svg?Expires=1646417814&amp;Signature=TEyA4JaRx~RoMJEVD74A5wIYKyIepWv8cvhf84-foAvpusJMgDOa7k9tL6n24v5ynqHY3lS-5miSEmLd~s0SyJlUnaNdqgRec~Y4QdjF3ypgOsmAdUv90~8HxSFbfw-buyzZ2EAT96ybJxBrGI11RAglywPv2ujEz4I~RgfWUzw_&amp;Key-Pair-Id=APKAI5ZVHAXN65CHVU2Q"/>
+          <Image
+              boxSize='30px'
+              objectFit='cover'
+              src='https://static.thenounproject.com/noun-svg/11875.svg?Expires=1646417814&Signature=TEyA4JaRx~RoMJEVD74A5wIYKyIepWv8cvhf84-foAvpusJMgDOa7k9tL6n24v5ynqHY3lS-5miSEmLd~s0SyJlUnaNdqgRec~Y4QdjF3ypgOsmAdUv90~8HxSFbfw-buyzZ2EAT96ybJxBrGI11RAglywPv2ujEz4I~RgfWUzw_&Key-Pair-Id=APKAI5ZVHAXN65CHVU2Q'
+              alt='Rakhi Boxes Logo icon'
+            />
+          <Text
+            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+            fontFamily={'heading'}
+            color={useColorModeValue('gray.800', 'white')}
+            className="logoicon">
+            Rakhi Boxes
+          </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
